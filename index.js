@@ -10,13 +10,13 @@ form.onsubmit = (event) => {
   localStorage.setItem("Name", inputName);
   input.value = "";
 
-  h1.innerHTML = localStorage.getItem("Name");
+  h1.innerText = localStorage.getItem("Name");
 };
 
 const deleteButton = document.getElementById("deleteBtn");
 deleteButton.addEventListener("click", (event) => {
   localStorage.removeItem("Name");
-  h1.innerHTML = "";
+  h1.innerText = "";
 });
 
 let timer = 0;
@@ -27,8 +27,9 @@ const incrementTimer = () => {
   sessionStorage.setItem("Timer", timer);
 };
 setInterval(incrementTimer, 1000);
-
-const getTimer = sessionStorage.getItem("Timer");
-if (getTimer) {
-  timer = getTimer;
-}
+window.addEventListener("DOMContentLoaded", () => {
+  const getTimer = sessionStorage.getItem("Timer");
+  if (getTimer) {
+    timer = getTimer;
+  }
+});
