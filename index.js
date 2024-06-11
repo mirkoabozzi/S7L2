@@ -18,3 +18,17 @@ deleteButton.addEventListener("click", (event) => {
   localStorage.removeItem("Name");
   h1.innerHTML = "";
 });
+
+let timer = 0;
+
+const incrementTimer = () => {
+  timer++;
+  //   console.log(timer);
+  sessionStorage.setItem("Timer", timer);
+};
+setInterval(incrementTimer, 1000);
+
+const getTimer = sessionStorage.getItem("Timer");
+if (getTimer) {
+  timer = getTimer;
+}
